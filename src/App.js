@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import { Header } from './components/Header/Header';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { HomePage } from './page/HomePage';
+import { Footer } from './components/Footer/Footer';
+import { Modal } from './components/Modal/Modal';
+import { useState } from 'react';
+import { MyCartPage } from './page/MyCartPage';
 
 function App() {
+  const [visible, setVisible] = useState(false);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Modal visible={visible} setVisible={setVisible} />
+      <Header setVisible={setVisible} />
+      <Routes>
+        <Route path='/' element={<HomePage />} />
+        <Route path='/cart' element={<MyCartPage />} />
+      </Routes>
+      <Footer />
+    </BrowserRouter>
   );
 }
 
