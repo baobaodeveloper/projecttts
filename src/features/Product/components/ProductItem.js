@@ -28,10 +28,6 @@ export const ProductItem = ({ item }) => {
   const handleAddProductInCart = () => {
     const data = {
       id,
-      ten,
-      hinhAnh,
-      donGia,
-      thue,
       soLuong: quality,
     };
     dispatch({ type: actions.UPDATE_MYCARD, data });

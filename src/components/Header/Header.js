@@ -10,6 +10,7 @@ export const Header = ({ setVisible }) => {
   const { myCart } = useSelector((state) => state.myCartReducer);
   const handleOpenModal = () => {
     setVisible(true);
+    navigate('/');
   };
   const handleClickShoppingCart = () => {
     navigate('/cart');

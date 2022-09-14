@@ -1,15 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { product } from '../../data';
+import { getLocalStorage, setLocalStorage } from '../../utils/common';
 
 const productSlice = createSlice({
   name: 'Product',
   initialState: {
-    productList: product || [],
+    productList: getLocalStorage('productList') || [],
   },
   reducers: {
     updateProduct: (state, action) => {
       state.productList = [action.payload, ...state.productList];
-      console.log(action);
+      setLocalStorage('productList', state.productList);
     },
   },
 });

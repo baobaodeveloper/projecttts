@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import createSagaMiddleWare from 'redux-saga';
-import lineOrderReducer from '../features/LineOrder/lineOrder';
+import lineOrderReducer from '../features/LineOrder/lineOrderReducer';
 import myCartReducer from '../features/MyCart/myCartReducer';
 import orderReducer from '../features/Order/orderReducer';
 import productReducer from '../features/Product/productReducer';

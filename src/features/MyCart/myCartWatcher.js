@@ -13,3 +13,18 @@ function* addProductInCart({ data = {} }) {
 export function* followAddProductInCart() {
   yield takeLeading(actions.UPDATE_MYCARD, addProductInCart);
 }
+
+function* removeProductInCart() {
+  try {
+    yield put(actionMyCart.moveProductFromMyCart());
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export function* followRemoveProductInCart() {
+  yield takeLeading(
+    actions.REMOVE_PRODUCT_IN_CART,
+    removeProductInCart
+  );
+}

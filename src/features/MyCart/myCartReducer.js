@@ -1,23 +1,27 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { myCart } from '../../data';
+import { getLocalStorage, setLocalStorage } from '../../utils/common';
 
 const myCartSlice = createSlice({
   name: 'myCart',
   initialState: {
-    myCart: myCart || [],
+    myCart: getLocalStorage('myCartList') || [],
   },
   reducers: {
     updateMyCart: (state, action) => {
-      let IndexProductExist = state.myCart.findIndex(
-        (item) => item.id === action.payload?.id
+      const indexExist = state.myCart.findIndex(
+        (item) => item.id === action.payload.id
       );
-
-      if (IndexProductExist !== -1) {
-        state.myCart[IndexProductExist].soLuong +=
-          action.payload.soLuong;
+      if (indexExist !== -1) {
+        state.myCart[indexExist].soLuong += action.payload.soLuong;
+        setLocalStorage('myCartList', state.myCart);
       } else {
         state.myCart = [action.payload, ...state.myCart];
+        setLocalStorage('myCartList', state.myCart);
       }
+    },
+    moveProductFromMyCart: (state, action) => {
+      state.myCart = [];
+      setLocalStorage('myCartList', state.myCart);
     },
   },
 });

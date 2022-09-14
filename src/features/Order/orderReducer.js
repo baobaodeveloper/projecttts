@@ -1,12 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { order } from '../../data';
+import { getLocalStorage, setLocalStorage } from '../../utils/common';
 
 const orderSlice = createSlice({
   name: 'order',
-  initialState: order,
+  initialState: {
+    order: getLocalStorage('orderList') || [],
+  },
   reducers: {
     updateOrder: (state, action) => {
-      state = [...order, action.payload];
+      state.order = [action.payload, ...state.order];
+      setLocalStorage('orderList', state.order);
     },
   },
 });
