@@ -12,6 +12,7 @@ export const HomePage = () => {
   const { productList } = useSelector(
     (state) => state.productReducer
   );
+  console.log(productList);
   const [data, setData] = useState([]);
   const [page, setPage] = useState(1);
   const [totalPage, setTotalPage] = useState(1);

@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { v4 as uuidv4 } from 'uuid';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useSnackbar } from 'notistack';
+import React from 'react';
+import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
+import { v4 as uuidv4 } from 'uuid';
 import * as yup from 'yup';
+import actions from '../../actionTypes';
 import { InputField } from '../../components/Input/InputField';
 import { InputPrice } from '../../components/Input/InputPrice';
-import actions from '../../actionTypes';
-import { useSnackbar } from 'notistack';
 import { loadingActions } from '../../components/Loading/loadingReducer';
 
 const schema = yup

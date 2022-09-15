@@ -1,10 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getLocalStorage, setLocalStorage } from '../../utils/common';
 
 const myCartSlice = createSlice({
   name: 'myCart',
   initialState: {
-    myCart: getLocalStorage('myCartList') || [],
+    myCart: [],
   },
   reducers: {
     updateMyCart: (state, action) => {
@@ -13,15 +12,12 @@ const myCartSlice = createSlice({
       );
       if (indexExist !== -1) {
         state.myCart[indexExist].soLuong += action.payload.soLuong;
-        setLocalStorage('myCartList', state.myCart);
       } else {
         state.myCart = [action.payload, ...state.myCart];
-        setLocalStorage('myCartList', state.myCart);
       }
     },
     moveProductFromMyCart: (state, action) => {
       state.myCart = [];
-      setLocalStorage('myCartList', state.myCart);
     },
   },
 });

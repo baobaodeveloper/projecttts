@@ -1,15 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getLocalStorage, setLocalStorage } from '../../utils/common';
 
 const lineOrderSlice = createSlice({
   name: 'lineOrder',
   initialState: {
-    lineOrder: getLocalStorage('lineOrderList') || [],
+    lineOrder: [],
   },
   reducers: {
     updateLineOrder: (state, action) => {
       state.lineOrder = [...state.lineOrder, action.payload];
-      setLocalStorage('lineOrderList', state.lineOrder);
     },
   },
 });
