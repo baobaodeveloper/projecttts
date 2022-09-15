@@ -23,9 +23,11 @@ export const HomePage = () => {
       for (let i = 0; i < productList.length; i += chunkSize) {
         newList.push(productList.slice(i, i + chunkSize));
       }
+      setTotalPage(newList.length > 0 ? newList.length : 1);
+      setData(newList[page - 1]);
+    } else {
+      setData(productList);
     }
-    setTotalPage(newList.length > 0 ? newList.length : 1);
-    setData(newList[page - 1]);
   }, [productList, page]);
   if (!productList) return;
   return (
