@@ -1,5 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import createSagaMiddleWare from 'redux-saga';
+import loadingReducer from '../components/Loading/loadingReducer';
 import lineOrderReducer from '../features/LineOrder/lineOrderReducer';
 import myCartReducer from '../features/MyCart/myCartReducer';
 import orderReducer from '../features/Order/orderReducer';
@@ -13,6 +14,7 @@ export const store = configureStore({
     productReducer,
     lineOrderReducer,
     myCartReducer,
+    loadingReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(sagaMiddleWare),

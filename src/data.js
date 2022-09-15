@@ -51,4 +51,4 @@ export const product = [
   },
 ];
 
-setLocalStorage('productList', product);
+// setLocalStorage('productList', product);

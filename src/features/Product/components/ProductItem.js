@@ -38,7 +38,7 @@ export const ProductItem = ({ item }) => {
     });
   };
   return (
-    <div className='max-w-xs rounded-md w-[320px] shrink-0 shadow-md '>
+    <div className='max-w-xs rounded-md w-[320px] shrink-0 shadow-md bg-white'>
       <div className='relative w-full h-72 z-10'>
         <img
           src={hinhAnh ? hinhAnh : IMAGE_DEFAULT}

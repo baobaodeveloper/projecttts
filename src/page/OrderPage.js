@@ -4,7 +4,7 @@ import { OrderItem } from '../features/Order/components/OrderItem';
 
 export const OrderPage = () => {
   const { order } = useSelector((state) => state.orderReducer);
-
+  console.log(order);
   return (
     <div className='container mx-auto min-h-[70vh]'>
       <h2 className='text-3xl text-center mt-3'>
@@ -23,6 +23,9 @@ export const OrderPage = () => {
 
               <th scope='col' className='py-3 px-6 text-center'>
                 Tổng tiền
+              </th>
+              <th scope='col' className='py-3 px-6 text-center'>
+                Ngày
               </th>
             </tr>
           </thead>

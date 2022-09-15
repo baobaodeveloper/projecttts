@@ -46,14 +46,14 @@ export const OrderPageDetail = () => {
         <div className='overflow-x-auto relative shadow-md sm:rounded-lg'>
           <table className='w-full text-sm text-left text-gray-500 '>
             <thead className='text-xs text-gray-700 uppercase '>
-              <tr className='text-center'>
-                <th scope='col' className='py-3 px-6 bg-gray-50 '>
+              <tr className='text-center bg-gray-100  '>
+                <th scope='col' className='py-3 px-6 '>
                   Tên đơn hàng
                 </th>
                 <th scope='col' className='py-3 px-6'>
                   Tổng trước thuế
                 </th>
-                <th scope='col' className='py-3 px-6 bg-gray-50 '>
+                <th scope='col' className='py-3 px-6  '>
                   Tổng thuế
                 </th>
                 <th scope='col' className='py-3 px-6'>
@@ -69,7 +69,7 @@ export const OrderPageDetail = () => {
 
         <div className='overflow-x-auto relative mt-10'>
           <table className='w-full text-sm text-left text-gray-500 dark:text-gray-400'>
-            <thead className='text-xs text-gray-700 uppercase bg-gray-50 '>
+            <thead className='text-xs text-gray-700 uppercase bg-gray-100 '>
               <tr className='text-center'>
                 <th scope='col' className='py-3 px-6'>
                   STT

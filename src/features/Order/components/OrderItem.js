@@ -1,9 +1,10 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import moment from 'moment';
 
 export const OrderItem = ({ item, idx }) => {
   const navigate = useNavigate();
-  const { ten, tongTien, id } = item;
+  const { ten, tongTien, id, createdAt } = item;
   const handleNavigateOrderPageDetail = () => {
     navigate(`/orderPageDetail/${id}`);
   };
@@ -21,6 +22,9 @@ export const OrderItem = ({ item, idx }) => {
         {ten}
       </th>
       <td className='py-4 px-6 text-center'>${tongTien}</td>
+      <td className='py-4 px-6 text-center'>
+        {moment(createdAt).add(10, 'days').calendar()}
+      </td>
     </tr>
   );
 };

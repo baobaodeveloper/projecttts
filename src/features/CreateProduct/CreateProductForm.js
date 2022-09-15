@@ -8,6 +8,7 @@ import { InputField } from '../../components/Input/InputField';
 import { InputPrice } from '../../components/Input/InputPrice';
 import actions from '../../actionTypes';
 import { useSnackbar } from 'notistack';
+import { loadingActions } from '../../components/Loading/loadingReducer';
 
 const schema = yup
   .object()
@@ -61,13 +62,19 @@ export const CreateProductForm = ({ setVisible }) => {
   });
 
   const handleSubmitForm = (values) => {
-    const data = { ...values, id: uuidv4() };
-    dispatch({ type: actions.UPDATE_LIST_PRODUCT, data });
-    reset();
-    setVisible(false);
-    enqueueSnackbar('Create new product success', {
-      variant: 'success',
-    });
+    dispatch(loadingActions.onLoading());
+
+    setTimeout(() => {
+      dispatch(loadingActions.offLoading());
+
+      const data = { ...values, id: uuidv4() };
+      dispatch({ type: actions.UPDATE_LIST_PRODUCT, data });
+      reset();
+      setVisible(false);
+      enqueueSnackbar('Tạo sản phẩm thành công', {
+        variant: 'success',
+      });
+    }, 1000);
   };
 
   return (
