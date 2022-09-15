@@ -9,6 +9,7 @@ import { OrderPage } from './page/OrderPage';
 import { OrderPageDetail } from './page/OrderPageDetail';
 import { Loading } from './components/Loading/Loading';
 import { useSelector } from 'react-redux';
+import { NotFound } from './page/NotFound';
 
 function App() {
   const [visible, setVisible] = useState(false);
@@ -27,6 +28,7 @@ function App() {
             path='/orderPageDetail/:id'
             element={<OrderPageDetail />}
           />
+          <Route path='*' element={<NotFound />} />
         </Routes>
         <Footer />
       </div>

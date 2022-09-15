@@ -7,6 +7,7 @@ import actions from '../actionTypes';
 import { MyCartItem } from '../features/MyCart/components/MyCartItem';
 import { ButtonPayment } from '../components/Button/ButtonPayment';
 import { loadingActions } from '../components/Loading/loadingReducer';
+import image_no_cart from '../assets/images/empty-cart.png';
 
 export const MyCartPage = () => {
   const { enqueueSnackbar } = useSnackbar();
@@ -82,65 +83,81 @@ export const MyCartPage = () => {
   };
 
   return (
-    <div className='container mx-auto min-h-[70vh]'>
+    <div className='container mx-auto '>
       <h2 className='text-3xl text-center mt-3'>
         Danh sách sản phẩm
       </h2>
-      <div className='overflow-x-auto relative my-10'>
-        <table className='w-full text-sm text-left text-gray-500 '>
-          <thead className='text-xs text-gray-700 uppercase bg-gray-100 '>
-            <tr className='text-center'>
-              <th scope='col' className='py-3 px-6'>
-                STT
-              </th>
-              <th scope='col' className='py-3 px-6'>
-                Tên sản phẩm
-              </th>
-              <th scope='col' className='py-3 px-6'>
-                Hình ảnh
-              </th>
-              <th scope='col' className='py-3 px-6'>
-                Số lượng
-              </th>
-              <th scope='col' className='py-3 px-6'>
-                Đơn giá
-              </th>
-              <th scope='col' className='py-3 px-6'>
-                Tổng trước thuế
-              </th>
-              <th scope='col' className='py-3 px-6'>
-                Tổng thuế
-              </th>
-              <th scope='col' className='py-3 px-6'>
-                Thành tiền
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {data.length > 0 &&
-              data.map((cart, idx) => (
-                <MyCartItem key={cart.id} cart={cart} idx={idx} />
-              ))}
-            <tr className='text-center text-gray-900 text-lg bg-white'>
-              <th
-                scope='row'
-                className='py-4 px-6 font-medium text-gray-900 whitespace-nowrap '
-              >
-                Tổng
-              </th>
-              <td colSpan={4} className='py-4 px-6'></td>
-              <td className='py-4 px-6'>${total.tongTruocThue}</td>
-              <td className='py-4 px-6'>${total.tongThue}</td>
-              <td className='py-4 px-6'>${total.tongThanhTien}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div className='flex justify-center mt-3'>
-        <div onClick={handleAddOrder}>
-          <ButtonPayment />
+
+      {myCart.length > 0 && (
+        <>
+          <div className='overflow-x-auto relative my-10'>
+            <table className='w-full text-sm text-left text-gray-500 '>
+              <thead className='text-xs text-gray-700 uppercase bg-gray-100 '>
+                <tr className='text-center'>
+                  <th scope='col' className='py-3 px-6'>
+                    STT
+                  </th>
+                  <th scope='col' className='py-3 px-6'>
+                    Tên sản phẩm
+                  </th>
+                  <th scope='col' className='py-3 px-6'>
+                    Hình ảnh
+                  </th>
+                  <th scope='col' className='py-3 px-6'>
+                    Số lượng
+                  </th>
+                  <th scope='col' className='py-3 px-6'>
+                    Đơn giá
+                  </th>
+                  <th scope='col' className='py-3 px-6'>
+                    Tổng trước thuế
+                  </th>
+                  <th scope='col' className='py-3 px-6'>
+                    Tổng thuế
+                  </th>
+                  <th scope='col' className='py-3 px-6'>
+                    Thành tiền
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {data.length > 0 &&
+                  data.map((cart, idx) => (
+                    <MyCartItem key={cart.id} cart={cart} idx={idx} />
+                  ))}
+                <tr className='text-center text-gray-900 text-lg bg-white'>
+                  <th
+                    scope='row'
+                    className='py-4 px-6 font-medium text-gray-900 whitespace-nowrap '
+                  >
+                    Tổng
+                  </th>
+                  <td colSpan={4} className='py-4 px-6'></td>
+                  <td className='py-4 px-6'>
+                    ${total.tongTruocThue}
+                  </td>
+                  <td className='py-4 px-6'>${total.tongThue}</td>
+                  <td className='py-4 px-6'>
+                    ${total.tongThanhTien}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div className='flex justify-center mt-3'>
+            <div onClick={handleAddOrder}>
+              <ButtonPayment />
+            </div>
+          </div>
+        </>
+      )}
+      {myCart.length === 0 && (
+        <div className='flex justify-center items-center h-full'>
+          <div>
+            <img className='h-[40vh]' src={image_no_cart} alt='' />
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };

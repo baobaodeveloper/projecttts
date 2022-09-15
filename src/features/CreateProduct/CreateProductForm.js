@@ -14,9 +14,7 @@ const schema = yup
   .object()
   .shape(
     {
-      ten: yup
-        .string()
-        .required('Tên sản phảm không duco95 để trống'),
+      ten: yup.string().required('Tên sản phảm không được để trống'),
       hinhAnh: yup
         .string()
         .matches(/^[(http)(https)]/, {

@@ -49,6 +49,38 @@ export const product = [
     donGia: 155,
     thue: 15,
   },
+  {
+    id: 7,
+    ten: 'Huawei',
+    hinhAnh:
+      'https://images.unsplash.com/photo-1581993192008-63e896f4f744?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1637&q=80',
+    donGia: 155,
+    thue: 15,
+  },
+  {
+    id: 8,
+    ten: 'Huawei',
+    hinhAnh:
+      'https://images.unsplash.com/photo-1620288650879-20db0eb38c05?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+    donGia: 155,
+    thue: 15,
+  },
+  {
+    id: 9,
+    ten: 'Huawei',
+    hinhAnh:
+      'https://images.unsplash.com/photo-1611407019488-0a354195b618?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
+    donGia: 155,
+    thue: 15,
+  },
+  {
+    id: 10,
+    ten: 'Huawei',
+    hinhAnh:
+      'https://images.unsplash.com/photo-1597762470488-3877b1f538c6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80',
+    donGia: 155,
+    thue: 15,
+  },
 ];
 
 // setLocalStorage('productList', product);
