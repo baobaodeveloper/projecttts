@@ -7,7 +7,7 @@ export const OrderPage = () => {
   const { order } = useSelector((state) => state.orderReducer);
   console.log(order);
   return (
-    <div className='container mx-auto '>
+    <div className='container mx-auto flex-1'>
       <h2 className='text-3xl text-center mt-3'>
         Danh sách đơn hàng đã đặt
       </h2>

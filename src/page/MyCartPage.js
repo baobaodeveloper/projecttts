@@ -83,8 +83,8 @@ export const MyCartPage = () => {
   };
 
   return (
-    <div className='container mx-auto '>
-      <h2 className='text-3xl text-center mt-3'>
+    <div className='container mx-auto flex-1 '>
+      <h2 className='text-3xl text-center mt-3 '>
         Danh sách sản phẩm
       </h2>
 
@@ -153,9 +153,7 @@ export const MyCartPage = () => {
       )}
       {myCart.length === 0 && (
         <div className='flex justify-center items-center h-full'>
-          <div>
-            <img className='h-[40vh]' src={image_no_cart} alt='' />
-          </div>
+          <img className='h-[40vh]' src={image_no_cart} alt='' />
         </div>
       )}
     </div>
