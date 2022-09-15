@@ -14,29 +14,27 @@ const schema = yup
   .object()
   .shape(
     {
-      ten: yup.string().required('Please enter product name'),
+      ten: yup
+        .string()
+        .required('Tên sản phảm không duco95 để trống'),
       hinhAnh: yup
         .string()
         .matches(/^[(http)(https)]/, {
-          message: 'Link image invalid',
+          message: 'Link hình ảnh phải bắt đầu http/https',
         })
-        .required('Please enter link image'),
+        .required('Link hình ảnh không được để trống'),
       donGia: yup
         .number()
-        .min(1, 'Price must be greater than 1')
-        .required('Please enter price product')
-        .typeError('Please enter price'),
+        .min(1, 'Giá phải lớn hơn $1')
+        .required('Giá không được để trống')
+        .typeError('Giá không được để trống'),
       thue: yup
         .number()
-        .test(
-          'donGia',
-          'Tax must be less than price',
-          function (value) {
-            return this.parent.donGia > value;
-          }
-        )
-        .required('Please enter tax')
-        .typeError('Please enter tax'),
+        .test('donGia', 'Thuế phải nhỏ hơn giá', function (value) {
+          return this.parent.donGia > value;
+        })
+        .required('Thuế không được để trống')
+        .typeError('Thuế không được để trống'),
     },
 
     [['donGia', 'thue']]
